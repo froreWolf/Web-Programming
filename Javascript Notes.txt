@@ -1,0 +1,87 @@
+Types of Javascript
+-------------------
+Inline
+Embedded
+External
+
+users without JS
+----------------
+use the <noscript> tag
+
+Variables
+---------
+dynamically typed
+	do not need to be declared of a certain type
+Primative
+	Boolean
+		true of false
+	Number
+		any number
+		internal format is a double precision 64 bit floating point
+	String
+		strings yo
+		single or double quote
+	Null
+		1 value: null
+	Undefined
+		1 value: undefined
+	Symbol
+		can hold a unique value that can be used as a key value
+reference types
+	are objects
+	can be methods or the like
+
+Output
+------
+alert
+	displays content in a pop up box
+console.log()
+	displays content in the browser's javascript console
+document.write()
+	outputs the content (as markup) directly to the html document
+
+Operators
+---------
+==
+	equals
+===
+	strict equality including type
+<, >
+	less than, greater than
+<=,>=
+	less than or equal to, greater than or equal to
+!=
+	not equal
+!==
+	not equal in value or type
+
+loops
+-----
+while
+	while (c ount < 10) {
+	//statements
+	count++;
+	}
+do...while
+	do{
+	//statements
+	count++;
+	} while (count < 10);
+
+function declarations vs funtion expressions
+--------------------------------------------
+syntax
+	function fun(param){}
+function declaration
+	function subtotal(price, quantity){
+		return price * quantity
+	}
+	invoked by
+		var result = subtotal(10,2)
+function expressions
+	var sub = function subtotal(price,quantity){
+	return price * quantity;
+	};
+	invoked by
+		var result = sub(10, 2)
+	functions can be anonymous
