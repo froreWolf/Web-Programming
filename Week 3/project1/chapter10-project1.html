@@ -45,7 +45,11 @@
 <script>
   //ensure that the reset button loads the most recent image when the window refreshes
   window.onload = function(){
-    $('figure img').attr('src', window.name);
+    var load = (window.name).split(":")
+    if (load[0] != ""){ //make sure that the window still loads an image if none are selected
+      $('figure img').attr('src', load[0]);
+      $('#imgManipulated figcaption').html(load[1]);
+    }
   }
   //add a listener to the thumbnail images
   $("#thumbBox img").click(function(){
@@ -79,8 +83,7 @@
   });
   //stop the reset button from reseting the image
   $('#resetFilters').click(function(){
-    window.name = $('figure img').attr('src')
-    console.log(window.name);
+    window.name = ($('figure img').attr('src') + ":" + $('#imgManipulated figcaption').html());
   });
 </script>
 </body>
