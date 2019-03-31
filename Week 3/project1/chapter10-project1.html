@@ -1,5 +1,8 @@
+
+<!doctype html>
 <html>
 <head>
+<meta charset="utf-8">
 <title>Chapter 10</title>
 <link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
@@ -40,7 +43,36 @@
     </div>
 </main>
 <script>
-
+  //add a listener to the thumbnail images
+  $("#thumbBox img").click(function(){
+    //change the image itself
+    var source = $(this).attr('src'); //gets the src attribute's contents
+    source = source.replace("small", "medium"); //.replace replaces all instances of small with medium
+    $('#imgManipulated img').attr('src',source); //.attr() takes the attribute in the first and replaces it with second
+    //change the title
+    var title = $(this).attr('alt'); //get title
+    var artist = $(this).attr('title'); //get artist
+    $('#imgManipulated figcaption').html("<em>" + title + "</em> <br>" + artist);
+  });
+  //add listeners for the image manipulation sliders
+  $("#sliderBox input").click(function(){
+    //change the filters to match the sliders
+		$('#imgManipulated img').css({
+			'-webkit-filter': 'opacity(' + sliderOpacity.value + '%) contrast(' + sliderSaturation.value + '%) ' +
+                        'brightness(' + sliderBrightness.value + '%) hue-rotate('+ sliderHue.value + 'deg) ' +
+                        'grayscale(' + sliderGray.value + '$) blur(' + sliderBlur.value + "px)",
+			'filter': 'opacity(' + sliderOpacity.value + '%) contrast(' + sliderSaturation.value + '%) ' +
+                'brightness(' + sliderBrightness.value + '%) hue-rotate(' + sliderHue.value + 'deg)' +
+                'grayscale(' + sliderGray.value + '%) blur(' + sliderBlur.value + 'px)'
+		});
+    //change the numbers next to the sliders to reflect the current values
+    $("#numOpacity").html(sliderOpacity.value);
+    $("#numSaturation").html(sliderSaturation.value);
+    $("#numBrightness").html(sliderBrightness.value);
+    $("#numHue").html(sliderHue.value);
+    $("#numGray").html(sliderGray.value);
+    $("#numBlur").html(sliderBlur.value);
+  });
 </script>
 </body>
 </html>
