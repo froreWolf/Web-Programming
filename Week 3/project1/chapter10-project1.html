@@ -43,6 +43,10 @@
     </div>
 </main>
 <script>
+  //ensure that the reset button loads the most recent image when the window refreshes
+  window.onload = function(){
+    $('figure img').attr('src', window.name);
+  }
   //add a listener to the thumbnail images
   $("#thumbBox img").click(function(){
     //change the image itself
@@ -72,6 +76,11 @@
     $("#numHue").html(sliderHue.value);
     $("#numGray").html(sliderGray.value);
     $("#numBlur").html(sliderBlur.value);
+  });
+  //stop the reset button from reseting the image
+  $('#resetFilters').click(function(){
+    window.name = $('figure img').attr('src')
+    console.log(window.name);
   });
 </script>
 </body>
