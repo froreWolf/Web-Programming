@@ -1,12 +1,18 @@
-<?php 
+<?php
+  $genres = ["Abstract","Baroque", "Gothic", "Renaissance"];
+  $subjects = ["Animals","Landscape","People"];
 
-
+  function showOptions($array){
+    for($i = 0; $i < count($array); $i++){
+      echo "<option>" . $array[$i] . "</option>";
+    }
+  }
 ?>
 <!DOCTYPE html>
 <html>
 <head lang="en">
     <meta charset="utf-8">
-    <title>Chapter 12</title>    
+    <title>Chapter 12</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="js/misc.js"></script>
     <link rel="stylesheet" href="css/reset.css" />
@@ -14,9 +20,9 @@
 </head>
 <body>
 <?php include 'header.inc.php'; ?>
-    
+
 <main>
-<form class="form"  id="mainForm">
+<form class="form"  id="mainForm" action="art-process.php" method="POST">
    <fieldset class="form__panel">
       <legend class="form__heading">Edit Art Work Details</legend>
         <p class="form__row">
@@ -26,39 +32,39 @@
        <p class="form__row">
            <label>Description</label><br/>
            <input type="text" name="description" class="form__input form__input--large">
-       </p>            
-       <p class="form__row"> 
+       </p>
+       <p class="form__row">
            <label>Genre</label><br/>
            <select name="genre" class="form__input form__select">
-              <option>Choose genre</option> 
-              
+              <option>Choose genre</option>
+              <?php showOptions($genres); ?>
            </select>
        </p>
-       <p class="form__row"> 
+       <p class="form__row">
            <label>Subject</label><br/>
            <select name="subject" class="form__input form__select">
-              <option>Choose subject</option> 
-              
+              <option>Choose subject</option>
+              <?php showOptions($subjects); ?>
            </select>
        </p>
-       <p class="form__row">	
-           <label>Medium</label><br/>               
+       <p class="form__row">
+           <label>Medium</label><br/>
            <input type="text" name="medium" class="form__input form__input--medium" />
        </p>
-       <p class="form__row">	
-           <label>Year</label><br/>               
+       <p class="form__row">
+           <label>Year</label><br/>
            <input type="text" name="year" class="form__input form__input--small" />
-       </p>  
-       <p class="form__row">	
-           <label>Museum</label><br/>               
+       </p>
+       <p class="form__row">
+           <label>Museum</label><br/>
            <input type="text" name="museum" class="form__input form__input--medium"/>
-       </p>                             
+       </p>
 
-       <div class="form__box"> 
-          <input type="submit" class="form__btn"> <input type="reset" value="Clear Form" class="form__btn">      
+       <div class="form__box">
+          <input type="submit" class="form__btn"> <input type="reset" value="Clear Form" class="form__btn">
        </div>
    </fieldset>
 </form>
-</main>       
+</main>
 </body>
 </html>
