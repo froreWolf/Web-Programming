@@ -25,5 +25,5 @@ $images[] = new TravelPhoto("images/square/8711645510.jpg", "Temple of Hephaisto
 
 $images[] = new TravelPhoto("images/square/6114907897.jpg", "At the top of Sulpher Mountain", "At top of Sulpher Mountain near Banff", 51.144571, -115.57467);
 
-  
+
 ?>
