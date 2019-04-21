@@ -8,7 +8,7 @@ $filtered = array();
 
 // first see if we should filter the countries
 if (isset($_GET['country'])) {
-    
+
     // loop thru each image in dataset and see if its country matches request
     foreach ($images as $img) {
         if ($img['country'] == $_GET['country']) {
@@ -39,8 +39,8 @@ else {
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
     <link rel="stylesheet" href="css/bootstrap.min.css" />
-    
-    
+
+
     <link rel="stylesheet" href="css/bootstrap-theme.css" />
     <link rel="stylesheet" href="css/captions.css" />
 
@@ -48,27 +48,27 @@ else {
 
 <body>
     <?php include 'header.inc.php'; ?>
-    
+
 
 
     <!-- Page Content -->
     <main class="container">
-     
-                                    
+
+
         <div class="btn-group countryButtons" role="group" aria-label="...">
           <a role="button" class="btn btn-default" href="list.php">All</a>
-          <?php foreach ($countries as $key => $value) { ?> 
+          <?php foreach ($countries as $key => $value) { ?>
               <a href="list.php?country=<?php echo $value; ?>" role="button" class="btn btn-default"> <?php echo $value; ?></a>
-          <?php } ?>     
-        </div>                
-           
-        
+          <?php } ?>
+        </div>
 
+
+    <!-- Images go here? -->
 		<ul class="caption-style-2">
           <?php foreach ($filtered as $img) { ?>
 			<li>
                 <a href="detail.php?id=<?php echo $img['id']; ?>" class="img-responsive">
-				<img src="images/square/<?php echo $img['path']; ?>" alt="<?php echo $img['title']; ?>">
+				<?php echo $img ?>
 				<div class="caption">
 					<div class="blur"></div>
 					<div class="caption-text">
@@ -76,21 +76,21 @@ else {
 					</div>
 				</div>
                     </a>
-			</li>        
+			</li>
           <?php } ?>
-       </ul>       
+       </ul>
 
-      
+
     </main>
-    
+
     <footer>
         <div class="container-fluid">
                     <div class="row final">
                 <p>Copyright &copy; 2017 Creative Commons ShareAlike</p>
                 <p><a href="#">Home</a> / <a href="#">About</a> / <a href="#">Contact</a> / <a href="#">Browse</a></p>
-            </div>            
+            </div>
         </div>
-        
+
 
     </footer>
 
